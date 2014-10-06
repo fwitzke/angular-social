@@ -1,4 +1,4 @@
-function template(tmpl, context, filter) {
+function replaceTemplate(tmpl, context, filter) {
     'use strict';
 
     return tmpl.replace(/\{([^\}]+)\}/g, function (m, key) {
@@ -109,7 +109,7 @@ app.directive('ngSocialButtons', ['$compile', '$q', '$parse', '$http', '$locatio
                         return def.promise;
                     },
                     makeUrl: function (url, context) {
-                        return template(url, context, encodeURIComponent);
+                        return replaceTemplate(url, context, encodeURIComponent);
                     }
                 };
                 return ctrl;
